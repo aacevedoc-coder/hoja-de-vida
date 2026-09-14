@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contacto - Hoja De Vida</title>
+  <link rel="icon" href="logo_ada13.png" type="image/png" />
+  <link rel="stylesheet" href="styles.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
+</head>
+
+<body>
+  <!-- 🔗 Navegación -->
+  <nav class="nav">
+    <a href="index.html" class="nav__link">Inicio</a>
+    <a href="proyectos.html" class="nav__link">Proyectos</a>
+    <a href="contacto.html" class="nav__link">Contacto</a>
+
+    <a class="btn-download" href="hoja_de_vida.pdf" download="Andres_Acevedo_HojaDeVida.pdf">
+      ⬇️ Descargar hoja de vida
+    </a>
+  </nav>
+
+  <div class="container">
+    <div class="cabecera">
+      <div class="contenedor_foto_perfil">
+        <img src="Foto_de_perfil.jpg" alt="Foto de perfil de Andres Acevedo" />
+      </div>
+    </div>
+
+    <div class="nombre_puesto">
+      <h1>Contacto</h1>
+      <h2>Hablemos</h2>
+    </div>
+  </div>
+
+  <div class="contenido_cv">
+    <section class="habilidades">
+      <h3><span class="material-symbols-outlined">mail </span>Escríbeme</h3>
+      <hr />
+
+      <p class="carta_presentacion">
+        Si tienes un proyecto, propuesta o necesitas una web profesional, envíame tu información y te responderé.
+      </p>
+
+      <br />
+
+      <!-- 📝 Formulario (solo visual por ahora) -->
+      <form action="#" method="POST" style="max-width: 600px;">
+        <label for="nombre">Nombre</label><br />
+        <input type="text" id="nombre" name="nombre" required placeholder="Tu nombre" style="width:100%; padding:10px;"/>
+
+        <br /><br />
+
+        <label for="email">Email</label><br />
+        <input type="email" id="email" name="email" required placeholder="tuemail@gmail.com" style="width:100%; padding:10px;"/>
+
+        <br /><br />
+
+        <label for="telefono">Teléfono (opcional)</label><br />
+        <input type="tel" id="telefono" name="telefono" placeholder="+57 3xx xxx xxxx" style="width:100%; padding:10px;"/>
+
+        <br /><br />
+
+        <label for="mensaje">Mensaje</label><br />
+        <textarea id="mensaje" name="mensaje" required rows="5" placeholder="Cuéntame sobre tu proyecto..." style="width:100%; padding:10px;"></textarea>
+
+        <br /><br />
+
+        <button type="submit" class="btn-download" style="border:none; cursor:pointer;">
+          ✅ Enviar mensaje
+        </button>
+      </form>
+
+      <br />
+
+      <h3><span class="material-symbols-outlined">contact_page </span>Información</h3>
+      <hr />
+
+      <ul>
+        <li>Email: andres@gmail.com</li>
+        <li>Teléfono: +57 3207467633</li>
+        <li>
+          LinkedIn:
+          <a href="https://www.linkedin.com" target="_blank" rel="noopener noreferrer">
+            Perfil en LinkedIn
+          </a>
+        </li>
+      </ul>
+    </section>
+  </div>
+</body>
+</html>

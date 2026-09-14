@@ -1,307 +1,408 @@
-/* =========================================================
-   Hoja de vida — paleta rojo / azul
-   Hecho para acompañar el index.html proporcionado
-   (clases: .container, .cabecera, .contenido_cv,
-   .habilidades, .experiencia, .grafico, etc.)
-   ========================================================= */
- 
+/* ==========================================================================
+   Hoja de Vida — styles.css
+   Variables, nav, cabecera, contenido, donuts de habilidades, formulario
+   ========================================================================== */
+
 :root {
-  --azul-oscuro:  #0d1b3e;
-  --azul-medio:   #16295c;
-  --azul-claro:   #3d5aa8;
-  --rojo:         #c8102e;
-  --rojo-oscuro:  #8f0c21;
-  --blanco:       #ffffff;
-  --gris-claro:   #f4f5f7;
-  --gris-linea:   #e2e5eb;
-  --texto-oscuro: #1c1f26;
-  --texto-gris:   #5b6470;
- 
-  --fuente-titulo: "Georgia", "Times New Roman", serif;
-  --fuente-texto:  "Segoe UI", Arial, sans-serif;
+  --color-bg: #f7f5fb;
+  --color-surface: #ffffff;
+  --color-dark: #241b2f;
+  --color-dark-2: #35234a;
+  --color-primary: #8250e0;
+  --color-primary-dark: #6636b8;
+  --color-accent: #ff6f59;
+  --color-accent-2: #ffb648;
+  --color-text: #2f2438;
+  --color-text-muted: #7a708a;
+  --color-border: #ece6f5;
+  --radius: 14px;
+  --radius-sm: 8px;
+  --shadow: 0 8px 24px rgba(18, 24, 43, 0.08);
+  --shadow-hover: 0 12px 32px rgba(18, 24, 43, 0.14);
+  --max-width: 1000px;
+  --transition: all 0.25s ease;
 }
- 
-* { box-sizing: border-box; }
- 
-html, body {
-  margin: 0;
-  padding: 0;
+
+* {
+  box-sizing: border-box;
 }
- 
+
+html {
+  scroll-behavior: smooth;
+}
+
 body {
-  font-family: var(--fuente-texto);
-  color: var(--texto-oscuro);
-  background: var(--gris-claro);
+  margin: 0;
+  font-family: "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  background: var(--color-bg);
+  color: var(--color-text);
   line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
 }
- 
-/* ---------------------------------------------------------
-   Texto suelto sobre el body (parrafo_1)
-   Se muestra como una franja discreta antes del CV.
-   Si no lo necesitas, puedes borrar el <p> del HTML.
---------------------------------------------------------- */
-.parrafo_1 {
-  max-width: 900px;
-  margin: 16px auto;
-  padding: 0 24px;
-  font-size: 12.5px;
-  font-style: italic;
-  color: var(--texto-gris);
-  text-align: center;
+
+a {
+  text-decoration: none;
+  color: inherit;
 }
- 
-/* ---------------------------------------------------------
-   Encabezado: foto + nombre / puesto
---------------------------------------------------------- */
-.container {
-  max-width: 960px;
-  margin: 0 auto;
-  display: flex;
-  align-items: center;
-  gap: 28px;
-  padding: 40px 44px;
-  background: linear-gradient(120deg, var(--azul-oscuro) 0%, var(--azul-medio) 100%);
-  border-bottom: 4px solid var(--rojo);
-}
- 
-.cabecera { flex: 0 0 auto; }
- 
-.contenedor_foto_perfil {
-  width: 130px;
-  height: 130px;
-  border-radius: 50%;
-  padding: 4px;
-  background: linear-gradient(135deg, var(--rojo), var(--azul-claro));
-}
- 
-.contenedor_foto_perfil img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  border-radius: 50%;
-  display: block;
-  border: 3px solid var(--azul-oscuro);
-}
- 
-.nombre_puesto h1 {
-  margin: 0 0 4px;
-  font-family: var(--fuente-titulo);
-  font-size: 32px;
-  color: var(--blanco);
-}
- 
-.nombre_puesto h2 {
-  margin: 0;
-  font-size: 16px;
-  font-weight: 500;
-  letter-spacing: 0.03em;
-  color: var(--rojo);
-  text-transform: none;
-}
- 
-/* ---------------------------------------------------------
-   Cuerpo del CV: sidebar (habilidades) + contenido (experiencia)
---------------------------------------------------------- */
-.contenido_cv {
-  max-width: 960px;
-  margin: 0 auto;
-  display: flex;
-  align-items: flex-start;
-  background: var(--blanco);
-  box-shadow: 0 0 0 1px var(--gris-linea);
-}
- 
-.habilidades,
-.experiencia {
-  padding: 40px 34px;
-}
- 
-.habilidades {
-  flex: 0 0 36%;
-  background: var(--azul-oscuro);
-  color: var(--blanco);
-}
- 
-.experiencia {
-  flex: 1;
-  background: var(--blanco);
-  color: var(--texto-oscuro);
-}
- 
-/* ---------------------------------------------------------
-   Encabezados de sección (h3 con ícono) y separadores
---------------------------------------------------------- */
-h3 {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  font-family: var(--fuente-titulo);
-  font-size: 18px;
-  margin: 0 0 10px;
-}
- 
-.habilidades h3 { color: var(--blanco); }
-.experiencia h3 { color: var(--azul-oscuro); }
- 
-h3 .material-symbols-outlined {
-  font-size: 20px;
-  color: var(--rojo);
-}
- 
-.material-symbols-outlined {
-  font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
-  vertical-align: middle;
-}
- 
-.habilidades hr {
-  border: none;
-  border-top: 2px solid var(--rojo);
-  margin: 0 0 18px;
-  width: 46px;
-}
- 
-.experiencia hr {
-  border: none;
-  border-top: 2px solid var(--rojo);
-  margin: 0 0 18px;
-  width: 46px;
-}
- 
-h4 {
-  font-family: var(--fuente-titulo);
-  font-size: 16px;
-  color: var(--azul-oscuro);
-  margin: 0 0 4px;
-}
- 
-/* ---------------------------------------------------------
-   Textos de la sidebar
---------------------------------------------------------- */
-.carta_presentacion {
-  font-size: 13.5px;
-  color: rgba(255, 255, 255, 0.82);
-  margin: 0;
-}
- 
-.habilidad {
-  text-align: center;
-  font-size: 13px;
-  color: rgba(255, 255, 255, 0.85);
-  margin-top: 6px;
-}
- 
-/* ---------------------------------------------------------
-   Gráfico tipo dona (habilidades / idiomas)
-   El anillo se dibuja con conic-gradient en rojo y azul claro;
-   .donut-hole recorta el centro para dejar el efecto de dona.
-   Ajusta el segundo valor del conic-gradient (0%-100%) para
-   representar el nivel de cada habilidad.
---------------------------------------------------------- */
-.grafico {
-  position: relative;
-  width: 90px;
-  height: 90px;
-  margin: 0 auto;
-  border-radius: 50%;
-  background: conic-gradient(
-    var(--rojo) 0% 75%,
-    rgba(255, 255, 255, 0.15) 75% 100%
-  );
-}
- 
-.donut-hole {
-  position: absolute;
-  inset: 12px;
-  border-radius: 50%;
-  background: var(--azul-oscuro);
-}
- 
-/* Los divs .sector quedan disponibles por si luego los usas
-   para animar o segmentar el anillo con JavaScript; por
-   defecto no necesitan verse. */
-.sector {
-  position: absolute;
-  inset: 0;
-  border-radius: 50%;
-}
- 
-/* ---------------------------------------------------------
-   Información de contacto
---------------------------------------------------------- */
-.habilidades ul {
+
+ul {
   list-style: none;
   margin: 0;
   padding: 0;
 }
- 
-.habilidades ul li {
-  position: relative;
-  padding-left: 16px;
-  font-size: 13.5px;
-  color: rgba(255, 255, 255, 0.85);
-  margin-bottom: 10px;
+
+hr {
+  border: none;
+  border-top: 2px solid var(--color-border);
+  margin: 10px 0 20px;
 }
- 
-.habilidades ul li::before {
-  content: "";
-  position: absolute;
-  left: 0;
-  top: 7px;
-  width: 6px;
-  height: 6px;
-  border-radius: 50%;
-  background: var(--rojo);
+
+.material-symbols-outlined {
+  font-variation-settings: "FILL" 0, "wght" 400, "GRAD" 0, "opsz" 24;
+  vertical-align: middle;
+  color: var(--color-primary);
+  margin-right: 6px;
 }
- 
-.habilidades ul li a {
-  color: var(--blanco);
-  text-decoration: underline;
-  text-decoration-color: var(--rojo);
+
+/* ==========================================================================
+   Navegación
+   ========================================================================== */
+
+.nav {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 28px;
+  flex-wrap: wrap;
+  background: var(--color-dark);
+  padding: 16px 24px;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
 }
- 
-.habilidades ul li a:hover { color: var(--rojo); }
- 
-/* ---------------------------------------------------------
-   Experiencia y formación
---------------------------------------------------------- */
-.nombre_empresa {
-  font-size: 14px;
+
+.nav__brand {
+  color: #fff;
   font-weight: 600;
-  color: var(--rojo);
+  font-size: 1.1rem;
+  padding: 0 4px;
 }
- 
+
+.nav__toggle {
+  border: 1px solid rgba(255, 255, 255, 0.4);
+}
+
+.nav__link {
+  color: rgba(255, 255, 255, 0.8);
+  font-weight: 500;
+  padding: 8px 14px;
+  border-radius: var(--radius-sm);
+  transition: var(--transition);
+}
+
+.nav__link:hover {
+  color: #fff;
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.btn-download {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: linear-gradient(135deg, var(--color-primary), var(--color-primary-dark));
+  color: #fff;
+  font-weight: 600;
+  padding: 10px 18px;
+  border-radius: 999px;
+  transition: var(--transition);
+  box-shadow: 0 4px 14px rgba(79, 109, 245, 0.35);
+}
+
+.btn-download:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(79, 109, 245, 0.45);
+  color: #fff;
+}
+
+/* ==========================================================================
+   Cabecera / Header
+   ========================================================================== */
+
+.container {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 40px 24px 24px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.cabecera {
+  margin-bottom: 18px;
+}
+
+.contenedor_foto_perfil {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 4px solid var(--color-surface);
+  box-shadow: var(--shadow);
+  background: var(--color-border);
+}
+
+.contenedor_foto_perfil img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.nombre_puesto h1 {
+  margin: 0;
+  font-size: 2.1rem;
+  font-weight: 700;
+  color: var(--color-dark);
+}
+
+.nombre_puesto h2 {
+  margin: 4px 0 0;
+  font-size: 1.1rem;
+  font-weight: 500;
+  color: var(--color-primary);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+/* ==========================================================================
+   Contenido general
+   ========================================================================== */
+
+.contenido_cv {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 0 24px 60px;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 24px;
+}
+
+/* En index.html hay dos secciones (.habilidades + .experiencia): en pantallas
+   grandes se muestran en dos columnas. */
+.contenido_cv:has(.habilidades):has(.experiencia) {
+  grid-template-columns: 1fr 1.2fr;
+  align-items: start;
+}
+
+.habilidades,
+.experiencia {
+  background: var(--color-surface);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  padding: 32px;
+}
+
+.habilidades h3,
+.experiencia h3 {
+  font-size: 1.15rem;
+  color: var(--color-dark);
+  margin: 24px 0 4px;
+}
+
+.habilidades h3:first-child,
+.experiencia h3:first-child {
+  margin-top: 0;
+}
+
+.carta_presentacion {
+  color: var(--color-text-muted);
+  font-size: 0.98rem;
+}
+
+/* ==========================================================================
+   Experiencia / Proyectos
+   ========================================================================== */
+
+.experiencia h4 {
+  margin: 4px 0 2px;
+  font-size: 1.05rem;
+  color: var(--color-dark);
+}
+
+.nombre_empresa {
+  font-weight: 600;
+  color: var(--color-primary);
+  font-size: 0.9rem;
+  margin-bottom: 4px;
+}
+
 .año_puesto {
-  font-size: 12.5px;
-  color: var(--texto-gris);
+  display: inline-block;
+  background: rgba(79, 109, 245, 0.1);
+  color: var(--color-primary-dark);
+  font-size: 0.8rem;
+  font-weight: 600;
+  padding: 3px 10px;
+  border-radius: 999px;
   margin-bottom: 8px;
 }
- 
+
 .descripcion_puesto {
-  font-size: 13.8px;
-  color: var(--texto-gris);
-  max-width: 60ch;
+  color: var(--color-text-muted);
+  font-size: 0.94rem;
   margin: 0;
 }
- 
-/* ---------------------------------------------------------
-   Responsivo
---------------------------------------------------------- */
-@media (max-width: 760px) {
-  .container {
-    flex-direction: column;
-    text-align: center;
-    padding: 32px 24px;
-  }
- 
-  .contenido_cv { flex-direction: column; }
- 
-  .habilidades, .experiencia {
-    flex: 1 1 auto;
-    padding: 32px 24px;
+
+.experiencia ul li,
+.habilidades ul li {
+  padding: 6px 0;
+  color: var(--color-text);
+  font-size: 0.95rem;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.experiencia ul li:last-child,
+.habilidades ul li:last-child {
+  border-bottom: none;
+}
+
+/* Enlace tipo call-to-action dentro de proyectos.html */
+.experiencia > a.nav__link {
+  margin-top: 12px;
+  background: var(--color-accent);
+  color: #fff;
+  font-weight: 600;
+  padding: 10px 16px;
+  border-radius: var(--radius-sm);
+}
+
+.experiencia > a.nav__link:hover {
+  background: #1aa590;
+}
+
+/* ==========================================================================
+   Gráficos de habilidades (donut charts)
+   ========================================================================== */
+
+.grafico {
+  position: relative;
+  width: 90px;
+  height: 90px;
+  border-radius: 50%;
+  margin: 0 auto 6px;
+  background: conic-gradient(
+    var(--color-primary) 0deg 260deg,
+    var(--color-border) 260deg 360deg
+  );
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.donut-hole {
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  background: var(--color-surface);
+  box-shadow: inset 0 0 0 1px var(--color-border);
+}
+
+/* Los .sector quedan disponibles para variar colores/porcentajes por JS,
+   pero por defecto se ocultan ya que el degradado ya se pinta en .grafico */
+.sector {
+  display: none;
+}
+
+.habilidad {
+  text-align: center;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--color-text);
+  margin-bottom: 6px;
+}
+
+/* ==========================================================================
+   Formulario de contacto
+   ========================================================================== */
+
+form label {
+  font-weight: 600;
+  font-size: 0.9rem;
+  color: var(--color-dark);
+  display: inline-block;
+  margin-bottom: 4px;
+}
+
+form input,
+form textarea {
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  font-family: inherit;
+  font-size: 0.95rem;
+  transition: var(--transition);
+  background: var(--color-bg);
+}
+
+form input:focus,
+form textarea:focus {
+  outline: none;
+  border-color: var(--color-primary);
+  background: var(--color-surface);
+  box-shadow: 0 0 0 3px rgba(79, 109, 245, 0.15);
+}
+
+form textarea {
+  resize: vertical;
+}
+
+form button.btn-download {
+  font-size: 0.95rem;
+}
+
+/* Lista de información de contacto */
+.habilidades ul li a {
+  color: var(--color-primary);
+  font-weight: 600;
+}
+
+.habilidades ul li a:hover {
+  text-decoration: underline;
+}
+
+/* ==========================================================================
+   Responsive
+   ========================================================================== */
+
+@media (max-width: 860px) {
+  .contenido_cv:has(.habilidades):has(.experiencia) {
+    grid-template-columns: 1fr;
   }
 }
- 
-@media (prefers-reduced-motion: reduce) {
-  * { transition: none !important; }
+
+@media (max-width: 640px) {
+  .nav {
+    justify-content: space-between;
+    gap: 12px;
+  }
+
+  .nombre_puesto h1 {
+    font-size: 1.6rem;
+  }
+
+  .habilidades,
+  .experiencia {
+    padding: 22px;
+  }
+
+  .grafico {
+    width: 76px;
+    height: 76px;
+  }
+
+  .donut-hole {
+    width: 54px;
+    height: 54px;
+  }
 }
- 
