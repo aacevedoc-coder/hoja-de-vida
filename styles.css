@@ -1,0 +1,307 @@
+/* =========================================================
+   Hoja de vida — paleta rojo / azul
+   Hecho para acompañar el index.html proporcionado
+   (clases: .container, .cabecera, .contenido_cv,
+   .habilidades, .experiencia, .grafico, etc.)
+   ========================================================= */
+ 
+:root {
+  --azul-oscuro:  #0d1b3e;
+  --azul-medio:   #16295c;
+  --azul-claro:   #3d5aa8;
+  --rojo:         #c8102e;
+  --rojo-oscuro:  #8f0c21;
+  --blanco:       #ffffff;
+  --gris-claro:   #f4f5f7;
+  --gris-linea:   #e2e5eb;
+  --texto-oscuro: #1c1f26;
+  --texto-gris:   #5b6470;
+ 
+  --fuente-titulo: "Georgia", "Times New Roman", serif;
+  --fuente-texto:  "Segoe UI", Arial, sans-serif;
+}
+ 
+* { box-sizing: border-box; }
+ 
+html, body {
+  margin: 0;
+  padding: 0;
+}
+ 
+body {
+  font-family: var(--fuente-texto);
+  color: var(--texto-oscuro);
+  background: var(--gris-claro);
+  line-height: 1.6;
+}
+ 
+/* ---------------------------------------------------------
+   Texto suelto sobre el body (parrafo_1)
+   Se muestra como una franja discreta antes del CV.
+   Si no lo necesitas, puedes borrar el <p> del HTML.
+--------------------------------------------------------- */
+.parrafo_1 {
+  max-width: 900px;
+  margin: 16px auto;
+  padding: 0 24px;
+  font-size: 12.5px;
+  font-style: italic;
+  color: var(--texto-gris);
+  text-align: center;
+}
+ 
+/* ---------------------------------------------------------
+   Encabezado: foto + nombre / puesto
+--------------------------------------------------------- */
+.container {
+  max-width: 960px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  gap: 28px;
+  padding: 40px 44px;
+  background: linear-gradient(120deg, var(--azul-oscuro) 0%, var(--azul-medio) 100%);
+  border-bottom: 4px solid var(--rojo);
+}
+ 
+.cabecera { flex: 0 0 auto; }
+ 
+.contenedor_foto_perfil {
+  width: 130px;
+  height: 130px;
+  border-radius: 50%;
+  padding: 4px;
+  background: linear-gradient(135deg, var(--rojo), var(--azul-claro));
+}
+ 
+.contenedor_foto_perfil img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 50%;
+  display: block;
+  border: 3px solid var(--azul-oscuro);
+}
+ 
+.nombre_puesto h1 {
+  margin: 0 0 4px;
+  font-family: var(--fuente-titulo);
+  font-size: 32px;
+  color: var(--blanco);
+}
+ 
+.nombre_puesto h2 {
+  margin: 0;
+  font-size: 16px;
+  font-weight: 500;
+  letter-spacing: 0.03em;
+  color: var(--rojo);
+  text-transform: none;
+}
+ 
+/* ---------------------------------------------------------
+   Cuerpo del CV: sidebar (habilidades) + contenido (experiencia)
+--------------------------------------------------------- */
+.contenido_cv {
+  max-width: 960px;
+  margin: 0 auto;
+  display: flex;
+  align-items: flex-start;
+  background: var(--blanco);
+  box-shadow: 0 0 0 1px var(--gris-linea);
+}
+ 
+.habilidades,
+.experiencia {
+  padding: 40px 34px;
+}
+ 
+.habilidades {
+  flex: 0 0 36%;
+  background: var(--azul-oscuro);
+  color: var(--blanco);
+}
+ 
+.experiencia {
+  flex: 1;
+  background: var(--blanco);
+  color: var(--texto-oscuro);
+}
+ 
+/* ---------------------------------------------------------
+   Encabezados de sección (h3 con ícono) y separadores
+--------------------------------------------------------- */
+h3 {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--fuente-titulo);
+  font-size: 18px;
+  margin: 0 0 10px;
+}
+ 
+.habilidades h3 { color: var(--blanco); }
+.experiencia h3 { color: var(--azul-oscuro); }
+ 
+h3 .material-symbols-outlined {
+  font-size: 20px;
+  color: var(--rojo);
+}
+ 
+.material-symbols-outlined {
+  font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+  vertical-align: middle;
+}
+ 
+.habilidades hr {
+  border: none;
+  border-top: 2px solid var(--rojo);
+  margin: 0 0 18px;
+  width: 46px;
+}
+ 
+.experiencia hr {
+  border: none;
+  border-top: 2px solid var(--rojo);
+  margin: 0 0 18px;
+  width: 46px;
+}
+ 
+h4 {
+  font-family: var(--fuente-titulo);
+  font-size: 16px;
+  color: var(--azul-oscuro);
+  margin: 0 0 4px;
+}
+ 
+/* ---------------------------------------------------------
+   Textos de la sidebar
+--------------------------------------------------------- */
+.carta_presentacion {
+  font-size: 13.5px;
+  color: rgba(255, 255, 255, 0.82);
+  margin: 0;
+}
+ 
+.habilidad {
+  text-align: center;
+  font-size: 13px;
+  color: rgba(255, 255, 255, 0.85);
+  margin-top: 6px;
+}
+ 
+/* ---------------------------------------------------------
+   Gráfico tipo dona (habilidades / idiomas)
+   El anillo se dibuja con conic-gradient en rojo y azul claro;
+   .donut-hole recorta el centro para dejar el efecto de dona.
+   Ajusta el segundo valor del conic-gradient (0%-100%) para
+   representar el nivel de cada habilidad.
+--------------------------------------------------------- */
+.grafico {
+  position: relative;
+  width: 90px;
+  height: 90px;
+  margin: 0 auto;
+  border-radius: 50%;
+  background: conic-gradient(
+    var(--rojo) 0% 75%,
+    rgba(255, 255, 255, 0.15) 75% 100%
+  );
+}
+ 
+.donut-hole {
+  position: absolute;
+  inset: 12px;
+  border-radius: 50%;
+  background: var(--azul-oscuro);
+}
+ 
+/* Los divs .sector quedan disponibles por si luego los usas
+   para animar o segmentar el anillo con JavaScript; por
+   defecto no necesitan verse. */
+.sector {
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+}
+ 
+/* ---------------------------------------------------------
+   Información de contacto
+--------------------------------------------------------- */
+.habilidades ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+ 
+.habilidades ul li {
+  position: relative;
+  padding-left: 16px;
+  font-size: 13.5px;
+  color: rgba(255, 255, 255, 0.85);
+  margin-bottom: 10px;
+}
+ 
+.habilidades ul li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 7px;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--rojo);
+}
+ 
+.habilidades ul li a {
+  color: var(--blanco);
+  text-decoration: underline;
+  text-decoration-color: var(--rojo);
+}
+ 
+.habilidades ul li a:hover { color: var(--rojo); }
+ 
+/* ---------------------------------------------------------
+   Experiencia y formación
+--------------------------------------------------------- */
+.nombre_empresa {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--rojo);
+}
+ 
+.año_puesto {
+  font-size: 12.5px;
+  color: var(--texto-gris);
+  margin-bottom: 8px;
+}
+ 
+.descripcion_puesto {
+  font-size: 13.8px;
+  color: var(--texto-gris);
+  max-width: 60ch;
+  margin: 0;
+}
+ 
+/* ---------------------------------------------------------
+   Responsivo
+--------------------------------------------------------- */
+@media (max-width: 760px) {
+  .container {
+    flex-direction: column;
+    text-align: center;
+    padding: 32px 24px;
+  }
+ 
+  .contenido_cv { flex-direction: column; }
+ 
+  .habilidades, .experiencia {
+    flex: 1 1 auto;
+    padding: 32px 24px;
+  }
+}
+ 
+@media (prefers-reduced-motion: reduce) {
+  * { transition: none !important; }
+}
+ 
